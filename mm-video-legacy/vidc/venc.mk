@@ -42,25 +42,19 @@ libmm-venc-def += -D_ANDROID_ICS_
 
 include $(CLEAR_VARS)
 
-ifneq ($(TARGET_QCOM_DISPLAY_VARIANT),)
-PLATFORM := .
-else
-PLATFORM := msm8960
-endif
-
 
 libmm-venc-inc      := bionic/libc/include
 libmm-venc-inc      += bionic/libstdc++/include
 libmm-venc-inc      := $(LOCAL_PATH)/venc/inc
 libmm-venc-inc      += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 libmm-venc-inc      += $(OMX_VIDEO_PATH)/vidc/common/inc
-libmm-venc-inc      += hardware/qcom/media/mm-core/inc
-libmm-venc-inc      += hardware/qcom/media/libstagefrighthw
-libmm-venc-inc      += $(call project-path-for,qcom-display)/$(PLATFORM)/libgralloc
+libmm-venc-inc      += $(call project-path-for,qcom-media)/mm-core/inc
+libmm-venc-inc      += $(call project-path-for,qcom-media)/libstagefrighthw
+libmm-venc-inc      += $(call project-path-for,qcom-display)/libgralloc
 libmm-venc-inc      += frameworks/native/include/media/hardware
 libmm-venc-inc      += frameworks/native/include/media/openmax
-libmm-venc-inc      += hardware/qcom/media/libc2dcolorconvert
-libmm-venc-inc      += $(call project-path-for,qcom-display)/$(PLATFORM)/libcopybit
+libmm-venc-inc      += $(call project-path-for,qcom-media)/libc2dcolorconvert
+libmm-venc-inc      += $(call project-path-for,qcom-display)/libcopybit
 libmm-venc-inc      += frameworks/av/include/media/stagefright
 
 
@@ -97,8 +91,8 @@ mm-venc-test720p-inc            := $(TARGET_OUT_HEADERS)/mm-core
 mm-venc-test720p-inc            += $(LOCAL_PATH)/venc/inc
 mm-venc-test720p-inc            += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 mm-venc-test720p-inc            += $(OMX_VIDEO_PATH)/vidc/common/inc
-mm-venc-test720p-inc            += hardware/qcom/media/mm-core/inc
-mm-venc-test720p-inc            += $(call project-path-for,qcom-display)/$(PLATFORM)/libgralloc
+mm-venc-test720p-inc            += $(call project-path-for,qcom-media)/mm-core/inc
+mm-venc-test720p-inc            += $(call project-path-for,qcom-display)/libgralloc
 
 LOCAL_MODULE                    := mm-venc-omx-test720p
 LOCAL_MODULE_TAGS               := optional
@@ -127,7 +121,7 @@ venc-test-inc                   += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/in
 LOCAL_MODULE                    := mm-video-encdrv-test
 LOCAL_MODULE_TAGS               := optional
 LOCAL_C_INCLUDES                := $(venc-test-inc)
-LOCAL_C_INCLUDES                += hardware/qcom/media/mm-core/inc
+LOCAL_C_INCLUDES                += $(call project-path-for,qcom-media)/mm-core/inc
 LOCAL_ADDITIONAL_DEPENDENCIES   := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 LOCAL_PRELINK_MODULE            := false
 

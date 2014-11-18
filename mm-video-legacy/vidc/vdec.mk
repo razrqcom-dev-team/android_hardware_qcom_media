@@ -51,30 +51,26 @@ libOmxVdec-def += -DUSE_ION
 include $(CLEAR_VARS)
 LOCAL_PATH:= $(ROOT_DIR)
 
-ifneq ($(TARGET_QCOM_DISPLAY_VARIANT),)
-PLATFORM := .
-libOmxVdec-def += -DDISPLAYCAF
-else
-PLATFORM := msm8960
+ifeq (hardware/qcom/display-caf/msm8960,$(call project-path-for,qcom-display))
+    libOmxVdec-def += -DDISPLAYCAF
 endif
-
 
 libmm-vdec-inc          := bionic/libc/include
 libmm-vdec-inc          += bionic/libstdc++/include
 libmm-vdec-inc          += $(LOCAL_PATH)/vdec/inc
 libmm-vdec-inc          += $(OMX_VIDEO_PATH)/vidc/common/inc
-libmm-vdec-inc          += hardware/qcom/media/mm-core/inc
+libmm-vdec-inc          += $(call project-path-for,qcom-media)/mm-core/inc
 libmm-vdec-inc          += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 #DRM include - Interface which loads the DRM library
 libmm-vdec-inc	        += $(OMX_VIDEO_PATH)/DivxDrmDecrypt/inc
-libmm-vdec-inc          += $(call project-path-for,qcom-display)/$(PLATFORM)/libgralloc
+libmm-vdec-inc          += $(call project-path-for,qcom-display)/libgralloc
 libmm-vdec-inc          += frameworks/native/include/media/openmax
 libmm-vdec-inc          += frameworks/native/include/media/hardware
-libmm-vdec-inc          += hardware/qcom/media/libc2dcolorconvert
-libmm-vdec-inc          += $(call project-path-for,qcom-display)/$(PLATFORM)/libcopybit
+libmm-vdec-inc          += $(call project-path-for,qcom-media)/libc2dcolorconvert
+libmm-vdec-inc          += $(call project-path-for,qcom-display)/libcopybit
 libmm-vdec-inc          += frameworks/av/include/media/stagefright
-libmm-vdec-inc          += $(call project-path-for,qcom-display)/$(PLATFORM)/libqservice
-libmm-vdec-inc          += $(call project-path-for,qcom-display)/$(PLATFORM)/libqdutils
+libmm-vdec-inc          += $(call project-path-for,qcom-display)/libqservice
+libmm-vdec-inc          += $(call project-path-for,qcom-display)/libqdutils
 libmm-vdec-inc          += frameworks/av/media/libmediaplayerservice
 libmm-vdec-inc          += frameworks/native/include/binder
 
@@ -107,7 +103,7 @@ include $(BUILD_SHARED_LIBRARY)
 # ---------------------------------------------------------------------------------
 include $(CLEAR_VARS)
 
-mm-vdec-test-inc    := hardware/qcom/media/mm-core/inc
+mm-vdec-test-inc    := $(call project-path-for,qcom-media)/mm-core/inc
 mm-vdec-test-inc    += $(LOCAL_PATH)/vdec/inc
 mm-vdec-test-inc    += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
@@ -131,7 +127,7 @@ include $(BUILD_EXECUTABLE)
 # ---------------------------------------------------------------------------------
 include $(CLEAR_VARS)
 
-mm-vdec-drv-test-inc    := hardware/qcom/media/mm-core/inc
+mm-vdec-drv-test-inc    := $(call project-path-for,qcom-media)/mm-core/inc
 mm-vdec-drv-test-inc    += $(LOCAL_PATH)/vdec/inc
 mm-vdec-drv-test-inc    += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
