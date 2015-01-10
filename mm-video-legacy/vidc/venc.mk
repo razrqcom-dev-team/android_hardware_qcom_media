@@ -51,12 +51,14 @@ libmm-venc-inc      := $(LOCAL_PATH)/venc/inc
 libmm-venc-inc      += $(OMX_VIDEO_PATH)/vidc/common/inc
 libmm-venc-inc      += $(call project-path-for,qcom-media)/mm-core/inc
 libmm-venc-inc      += $(call project-path-for,qcom-media)/libstagefrighthw
+libmm-venc-inc      += $(call project-path-for,qcom-display)/libgralloc
 libmm-venc-inc      += $(TARGET_OUT_HEADERS)/qcom/display
 libmm-venc-inc      += $(TARGET_OUT_HEADERS)/adreno
 libmm-venc-inc      += $(TARGET_OUT_HEADERS)/adreno200
 libmm-venc-inc      += frameworks/native/include/media/hardware
 libmm-venc-inc      += frameworks/native/include/media/openmax
 libmm-venc-inc      += $(call project-path-for,qcom-media)/libc2dcolorconvert
+libmm-venc-inc      += $(call project-path-for,qcom-display)/libcopybit
 libmm-venc-inc      += frameworks/av/include/media/stagefright
 libmm-venc-inc      += $(venc-inc)
 
@@ -94,6 +96,7 @@ mm-venc-test720p-inc            += $(LOCAL_PATH)/venc/inc
 mm-venc-test720p-inc            += $(OMX_VIDEO_PATH)/vidc/common/inc
 mm-venc-test720p-inc            += $(call project-path-for,qcom-media)/mm-core/inc
 mm-venc-test720p-inc            += $(TARGET_OUT_HEADERS)/qcom/display
+mm-venc-test720p-inc            += $(call project-path-for,qcom-display)/libgralloc
 mm-venc-test720p-inc            += $(venc-inc)
 
 LOCAL_MODULE                    := mm-venc-omx-test720p

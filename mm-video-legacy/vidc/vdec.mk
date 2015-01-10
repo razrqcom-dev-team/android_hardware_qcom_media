@@ -60,13 +60,17 @@ libmm-vdec-inc          += $(OMX_VIDEO_PATH)/vidc/common/inc
 libmm-vdec-inc          += $(call project-path-for,qcom-media)/mm-core/inc
 #DRM include - Interface which loads the DRM library
 libmm-vdec-inc	        += $(OMX_VIDEO_PATH)/DivxDrmDecrypt/inc
+libmm-vdec-inc          += $(call project-path-for,qcom-display)/libgralloc
 libmm-vdec-inc	        += $(TARGET_OUT_HEADERS)/qcom/display
 libmm-vdec-inc	        += $(TARGET_OUT_HEADERS)/adreno
 libmm-vdec-inc	        += $(TARGET_OUT_HEADERS)/adreno200
 libmm-vdec-inc          += frameworks/native/include/media/openmax
 libmm-vdec-inc          += frameworks/native/include/media/hardware
 libmm-vdec-inc          += $(call project-path-for,qcom-media)/libc2dcolorconvert
+libmm-vdec-inc          += $(call project-path-for,qcom-display)/libcopybit
 libmm-vdec-inc          += frameworks/av/include/media/stagefright
+libmm-vdec-inc          += $(call project-path-for,qcom-display)/libqservice
+libmm-vdec-inc          += $(call project-path-for,qcom-display)/libqdutils
 libmm-vdec-inc          += $(vdec-inc)
 
 LOCAL_MODULE                    := libOmxVdec
