@@ -65,6 +65,7 @@ enum {
     kKeyUseArbitraryMode     = 'ArbM',  //bool (int32_t)
     kKeySmoothStreaming      = 'ESmS',  //bool (int32_t)
     kKeyHFR                  = 'hfr ',  // int32_t
+    kKeyHSR                  = 'hsr ',  // int32_t
 
     kKeyMinBlkSize        = 'mibs', //int32_t
     kKeyMaxBlkSize        = 'mabs', //int32_t
