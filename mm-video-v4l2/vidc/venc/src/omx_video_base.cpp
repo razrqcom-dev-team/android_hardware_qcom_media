@@ -4244,9 +4244,9 @@ int omx_video::alloc_map_ion_memory(int size,
         alloc_data->align = SZ_4K;
         alloc_data->flags = (flag & ION_FLAG_CACHED ? ION_FLAG_CACHED : 0);
 #ifdef MAX_RES_720P
-    alloc_data->heap_id_mask = ION_HEAP(MEM_HEAP_ID);
+    alloc_data->heap_mask = ION_HEAP(MEM_HEAP_ID);
 #else
-    alloc_data->heap_id_mask = (ION_HEAP(MEM_HEAP_ID) |
+    alloc_data->heap_mask = (ION_HEAP(MEM_HEAP_ID) |
             ION_HEAP(ION_IOMMU_HEAP_ID));
 #endif
         DEBUG_PRINT_HIGH("ION ALLOC unsec buf: size %d align %d flags %x",
